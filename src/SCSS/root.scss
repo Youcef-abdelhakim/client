@@ -1,0 +1,29 @@
+
+$fonts : (
+    formal : ("Roboto", sans-serif),
+    informal : ("Dancing Script", cursive)
+);
+
+$color : (
+    perfect-perpel : (#251b28),
+    minty-green : (#01332b),
+    sea-green : (#8abfb2),
+    lilac-gray : (#c4c4db),
+    wht: (#ffffff)
+);
+
+$fontsize :(
+    xs : (0.75rem),
+    s : (0.875rem),
+    m : (1rem),
+    l : (1.25rem),
+    xl : (1.5rem),
+    xxl : (2rem)
+);
+$fonweight :(
+    Min : (300),
+    mid : (400),
+    semi-max : (600),
+    max : (700),
+    ultra-max : (900)
+)

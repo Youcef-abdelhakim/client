@@ -1,0 +1,44 @@
+@import  '../../SCSS/root.scss';
+
+header{
+    display: flex;
+    flex-direction: row;
+    background: map-get($color, minty-green );
+    width: 100%;
+    right: 0;
+}
+
+header h1{
+    font-family: map-get($fonts , informal );
+    font-weight: map-get($fonweight, max );
+}
+
+.logo {
+    flex: 2;
+    margin: 30px;
+}
+header nav{
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.link{
+    color: black;
+    font-weight: map-get($fonweight, ultra-max );
+}
+.cart{
+    flex: 2;
+    text-align: left;
+    justify-content: end;
+    display: flex;
+    margin-top: 30px;
+    font-size: map-get($fontsize, xl );
+    
+}
+.link2{
+    margin-right: 30px;
+    color: black;
+}
