@@ -1,0 +1,50 @@
+@import  '../../SCSS/root.scss';
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+.picture-section{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-image: url(../../pictures/back1.avif);
+    background-position: center;
+    padding-top: 120px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.introduction{
+    color: white;
+    width: 40%;
+    position: absolute ;
+    right: 0;
+    margin-top: 250px;
+}
+.introduction h1{
+    margin-bottom: 35px;
+    font-family: map-get($fonts, informal);
+    font-size: map-get($fontsize, xxxl);
+    font-weight: map-get($fonweight, ultra-max );
+    color: map-get($color, sea-green );
+}
+.introduction h2{
+    font-family: "Playwrite CU", cursive;
+    margin-bottom: 20px;
+    color: map-get($color, lilac-gray );
+}
+.introduction p{
+    width: 60%;
+    font-weight: map-get($fonweight, Min );
+    margin-bottom: 65px;
+}
+.introduction a{
+    border: 1px solid white;
+    padding: 17px 55px;
+    color: black;
+    background: white;
+    transition: all .6s ease;
+}
+.introduction a:hover{
+    background: map-get($color, minty-green );
+    color: map-get($color, lilac-gray);
+    border-radius: 5px;
+    border: 2px solid black;
+}

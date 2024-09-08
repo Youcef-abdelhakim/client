@@ -5,7 +5,11 @@ header{
     flex-direction: row;
     background: map-get($color, minty-green );
     width: 100%;
-    right: 0;
+    border-radius: 0 0 10px 10px;
+    height: 120px;
+    position: fixed;
+    box-shadow: 5px 5px 10px 0 map-get($color, sea-green );
+    z-index: 999;
 }
 
 header h1{
@@ -15,30 +19,151 @@ header h1{
 
 .logo {
     flex: 2;
-    margin: 30px;
+    margin: 27px;
+    color: white;
+    align-items: center;
+    transition: all .6s ease-in-out;
+    cursor: pointer;
+}
+
+.logo h1:hover{
+    color: map-get($color, lightgreen );
 }
 header nav{
     flex: 3;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 30px;
+    text-align: center;
+    align-items: center;
 }
 
 .link{
     color: black;
     font-weight: map-get($fonweight, ultra-max );
+    font-size: map-get($fontsize, l );
+    color: white;
+    transition: all .6s ease;
 }
+.aa{
+    color: black;
+    font-weight: map-get($fonweight, ultra-max );
+    font-size: map-get($fontsize, xl );
+    color: white;
+    transition: all .6s ease;
+    display: none;
+
+}
+.aa:hover{
+    text-decoration: underline;
+    color: map-get($color, lightgreen );
+    text-shadow: 1px 1px 4px map-get($color, lightgreen );
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: map-get($color, lightgreen );
+    text-shadow: 1px 1px 4px map-get($color, lightgreen );
+}
+.link:active{
+    text-decoration: underline;
+    color: map-get($color, lightgreen );
+}
+
 .cart{
     flex: 2;
     text-align: left;
     justify-content: end;
     display: flex;
-    margin-top: 30px;
+    align-items: center;
     font-size: map-get($fontsize, xl );
+    
     
 }
 .link2{
     margin-right: 30px;
     color: black;
+    color: map-get($color, sea-green );
 }
+
+.link2:hover{
+    color: white;
+}
+
+.navelist{
+    z-index: 1000;
+    display: flex;
+    position: absolute;
+    height:120px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    
+
+}
+.navelist ul{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+    
+}
+.navelist li {
+    text-decoration: none;
+    width: 100%;
+    font-size: map-get($fontsize, xm );
+    margin-bottom: 5px;
+    height: 25px;
+    border-radius: 5px;
+    
+
+}
+.navelist li a{
+    color: map-get($color, perfect-perpel );
+}
+
+.navelist li a:hover{
+    color: map-get($color, lightgreen );
+    text-decoration: underline;
+    text-shadow: 1px 1px 4px map-get($color, minty-green );
+    font-weight: map-get($fonweight, max );
+}
+
+
+.display{
+    display: flex;
+}
+
+.exit{
+    width: 100%;
+    background-color: white;
+    color: map-get($color, minty-green );
+    font-size: map-get($fontsize, xl );
+    
+}
+.exit:hover{
+    color: red;
+    text-shadow: 1px 1px 4px red;
+    font-weight: map-get($fonweight, max );
+}
+
+
+@media only screen and (max-width: 900px) {
+    .link {
+        display: none;
+
+    }
+    .aa{
+        display: block;
+        font-size: map-get($fontsize, xxl );
+    }
+    .logo{
+        font-size: map-get($fontsize, s );
+    }
+    .cart{
+        font-size: map-get($fontsize, xm );
+    }
+}
+  

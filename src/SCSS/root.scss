@@ -9,16 +9,20 @@ $color : (
     minty-green : (#01332b),
     sea-green : (#8abfb2),
     lilac-gray : (#c4c4db),
-    wht: (#ffffff)
+    wht: (#ffffff),
+    lightgreen: (#98FF98)
+
 );
 
 $fontsize :(
     xs : (0.75rem),
     s : (0.875rem),
     m : (1rem),
+    xm : (1.1rem),
     l : (1.25rem),
     xl : (1.5rem),
-    xxl : (2rem)
+    xxl : (2rem),
+    xxxl : (4em)
 );
 $fonweight :(
     Min : (300),
