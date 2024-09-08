@@ -4,6 +4,7 @@ const Home = () =>{
     return(
         <Fragment>
         <section className='picture-section section1'>
+
             <div className='introduction'>
                 <h1>
                 Luxe Scents
@@ -18,10 +19,14 @@ const Home = () =>{
                 to captivate your senses and leave a lasting
                 impression. Experience the essence of elegance 
                 </p>
-                <a href='#'>
+                <a href='#products'>
                     Shope Now
                 </a>
             </div>
+        </section>
+
+        <section className='products' id ='products'>
+            <h1>hi there</h1>
         </section>
     </Fragment>
     );
