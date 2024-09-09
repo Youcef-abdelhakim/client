@@ -20,7 +20,7 @@ const Layout = ({ }) =>{
             </div>
             <nav>
                 <Link className="link">Home</Link>
-                <Link className="link">Shope</Link>
+                <a className="link" href="#products">Shope</a>
                 <Link className="link">About us</Link>
                 <Link className="link">Contact Us</Link>
                 <Link className="link">Blog</Link>
