@@ -48,11 +48,15 @@ const Home = () =>{
             <div className='producte-continer'>
                 {
                     categories.map(categorie => (
-                        <div className={categorie.name} key={categorie.name}>
-                            <h3>{categorie.name}</h3>
+                        <div className='categorie' key={categorie.name}>
+                            <div className='catname'>
+                                <h2>{categorie.name}</h2>
+                            </div>
+                            <div className='crts'>
                             {perfumes.filter(prf => prf.category === categorie.name).map(prf => (
                                 <Product key={`${categorie.id}_${prf.name}`} parfume={prf}/> 
                             ))}
+                            </div>
                         </div>
                     ))
                 }

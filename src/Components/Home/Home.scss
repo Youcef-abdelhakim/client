@@ -88,9 +88,35 @@
     text-shadow: 5px 5px 7px map-get($color, sea-green );
 }
 
+.crts{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
+    row-gap: 3rem;
+    column-gap: 2rem;
+    place-content:center ;
+    width: 80%;
+}
 
-
-
+.categorie{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.catname{
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.catname h2{
+    color: map-get($color, minty-green );
+    text-shadow: 3px 3px 5px map-get($color, minty-green );
+    font-family: map-get($fonts, informal );
+    font-size: map-get($fontsize, xxl );
+}
 
 
 @media only screen and (max-width: 900px){
