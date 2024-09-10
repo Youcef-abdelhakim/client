@@ -1,3 +1,4 @@
+
 export const perfumes = [
     {
       id: "f-1",
@@ -6,7 +7,7 @@ export const perfumes = [
       price: 75.00,
       stock: 50,
       state: "In Stock",
-      pictureUrl: "",
+      pictureUrl:"n1.jpg",
       category: "Nish"
     },
     {
@@ -17,7 +18,7 @@ export const perfumes = [
       stock: 30,
       state: "In Stock",
       pictureUrl: "",
-      category: "Casual"
+      category: "Nish"
     },
     {
       id: "f-3",
@@ -27,7 +28,7 @@ export const perfumes = [
       stock: 20,
       state: "Out of Stock",
       pictureUrl: "",
-      category: "Casual"
+      category: "Women"
     },
     {
       id: "f-4",
@@ -37,7 +38,7 @@ export const perfumes = [
       stock: 40,
       state: "In Stock",
       pictureUrl: "",
-      category: "Casual"
+      category: "women"
     },
     {
       id: "f-5",
@@ -87,7 +88,7 @@ export const perfumes = [
       stock: 45,
       state: "In Stock",
       pictureUrl: "",
-      category: "Casual"
+      category: "women"
     },
     {
       id: "f-10",

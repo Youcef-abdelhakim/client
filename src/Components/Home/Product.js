@@ -18,8 +18,8 @@ const Product = ({parfume}) =>{
         <Fragment>
             <div className="product-card">
                 <img src={parfume.pictureUrl} alt={parfume.name}/>
-                <h2>{parfume.name}</h2>
-                <h3>{parfume.brand}</h3>
+                <h4>{parfume.name}</h4>
+                <h5>{parfume.brand}</h5>
                 <p className={stockStyle(parfume.state)}>{parfume.state}</p>
                 <a>Add to Card</a>
                 <a>View details</a>
