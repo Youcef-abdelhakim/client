@@ -24,7 +24,7 @@
 
 .introduction{
     color: black;    
-    margin-top:10rem;
+    margin-top:7rem;
     margin-left: 10rem;
     flex: 1;
 }
@@ -61,7 +61,7 @@
 }
 
 .products{
-    height:100vh;  
+    
     padding-top: 140px;
     position:relative;
     width: 100%;
@@ -97,6 +97,8 @@
     column-gap: 2rem;
     place-content:center ;
     width: 80%;
+    border-top: 1px solid black;
+    padding-top: 5px;
 }
 
 .categorie{
@@ -137,3 +139,4 @@
     }
 
 }    
+
