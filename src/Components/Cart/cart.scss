@@ -1,0 +1,68 @@
+@import   '../../SCSS/root.scss';
+
+.cart1{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+    align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cart-continer{
+    width: 85%;
+    padding: 3%;
+    box-shadow: 0 4px 8px gray;
+    border-radius: 10px;
+    margin-top: 15%;
+    justify-content: center;
+}
+
+.cart-title{
+    width: 100%;
+    text-align: center;
+}
+.cart-title h1{
+    font-size: map-get($fontsize, xxxl );
+    font-family: map-get($fonts, informal );
+}
+
+.cart-title span{
+    color: map-get($color, minty-green );
+    text-shadow: 5px 5px 7px map-get($color, sea-green );
+    font-family: map-get($fonts, informal );
+}
+
+.cart-continer ul{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
+}
+.cart-continer li{
+    border-radius: 5px;
+    box-shadow: 0 4px 8px map-get($color, lilac-gray );
+    margin-top: 3%;
+    
+}
+
+.cart-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2%;
+    align-items: center;
+}
+
+.price-cart1{
+    color: green;
+}
+.cart-continer a{
+    font-size: map-get($fontsize, xxl );
+    transition: all .6s ease-in-out;
+}
+
+.cart-continer a:hover{
+    color: red;
+    text-shadow: 1px 1px 4px red;
+}

@@ -1,21 +1,19 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Img1 from '../../pictures/p1.jpg'
 import {categories, perfumes} from '../../data';
 import Product from './Product';
 
-const Home = () =>{
+const Home = ({cart, addtoCart, prf}) =>{
 
-    useEffect(() =>{
-        console.log(perfumes);
-        const maped_data = new Map();
-        categories.forEach(categorie =>{
-            maped_data.set(categorie, perfumes.filter(p => p.category === categorie.name));
-        });
-        console.log(maped_data);
-    });
-
-
-
+    // useEffect(() =>{
+    //     console.log(perfumes);
+    //     const maped_data = new Map();
+    //     categories.forEach(categorie =>{
+    //         maped_data.set(categorie, perfumes.filter(p => p.category === categorie.name));
+    //     });
+    //     console.log(maped_data);
+    // });
+  
     return(
         <Fragment>
         <section className='picture-section section1'>
@@ -54,7 +52,7 @@ const Home = () =>{
                             </div>
                             <div className='crts'>
                             {perfumes.filter(prf => prf.category === categorie.name).map(prf => (
-                                <Product key={`${categorie.id}_${prf.name}`} parfume={prf}/> 
+                                <Product key={`${categorie.id}_${prf.name}`} parfume={prf} handleCallback={() => addtoCart(prf)} /> 
                             ))}
                             </div>
                         </div>
@@ -62,9 +60,43 @@ const Home = () =>{
                 }
             </div>
         </section>
-
+        <section className="footer" id="contact">
+            <div className="first-part">
+                <div className='titlelg'>
+                    <h1>
+                    Luxe Scents
+                    </h1>
+                </div>
+                <div>
+                    <h4>
+                    Welcome to our exclusive collection of perfumes
+                    Indulge in the luxury of our premium perfumes, 
+                    crafted with the finest ingredients from around the
+                    world. Each bottle is a masterpiece, designed to 
+                    captivate your senses and leave a lasting impression.
+                     Experience the essence of elegance
+                    </h4>
+                </div>
+                <div className="contacts">
+                    <a><i className='bx bxl-facebook-square' ></i></a>
+                    <a><i className='bx bxl-instagram' ></i></a>
+                    <a><i className='bx bxl-blogger' ></i></a>
+                    <a><i className='bx bxl-pinterest-alt'></i></a>
+                    <a><i className='bx bxs-map' ></i></a>
+                </div>
+            </div>
+            <div className="second-part">
+                <p>be always withe news</p>
+                <input type="email" placeholder="youe email@luxe-scents"/> 
+                <button>submit</button>               
+            </div>
+            
+        </section>
+        <p className="cop">&copy; 2024 Your Company Name. All rights reserved.</p>
 
     </Fragment>
     );
+    
 }
 export default Home;
+
