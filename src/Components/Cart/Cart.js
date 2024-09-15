@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Cart = ({cart}) =>{
+const Cart = ({cart, removeforCart}) =>{
 
+    const empty = cart.length === 0;
+
+    const [total, settotal] = useState(0);
+
+    useEffect(() =>{
+        settotal(
+            cart.reduce((acemulater, item) => acemulater + Number(item.pricen), 0)
+        )
+    },[cart])
     return(
         <section className="cart1">
             <div className="cart-continer">
@@ -15,14 +25,26 @@ const Cart = ({cart}) =>{
                                 <div className="cart-item">
                                     <h3>{list.name}</h3>
                                     <h3>{list.category}</h3>
-                                    <h3 className="price-cart1">£ {list.price}</h3>
-                                    <h4>Quantity: 1</h4>
-                                    <a><i className='bx bx-x'></i></a>
+                                    <h3 className="price-cart1">£ {list.pricen}</h3>
+                                    <h4>Quantity: {list.quant}</h4>
+                                    <a onClick={() => removeforCart(list)}><i className='bx bx-x'></i></a>
                                 </div>
                             </li>
                         ))}
                     </ul>
                 </div>
+                
+                <div className="cart-totalprice">
+                        <h2>Total Price of Your Cart is: <span>£{total}</span></h2>
+                </div>
+
+                {!empty && 
+                    (<div className="confirm-cart">
+                        <Link to="/form" >
+                            Confirm Order
+                         </Link>
+                    </div>)
+                }
             </div>
         </section>
     );

@@ -1,0 +1,85 @@
+.form-section{
+    height: calc(100vh - 100px);
+    margin-top: 100px ; 
+    width: 100%;
+    padding-top: 50px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.form-continer{
+    width: 65%;
+    height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px gray;
+}
+
+.form-title{
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.form-title h1{
+    font-family: map-get($fonts, informal );
+    font-size: map-get($fontsize, xxxl );
+    font-weight: map-get($fonweight, ultra-max );
+}
+.form-title span{
+    font-family: map-get($fonts, informal );
+    font-weight: map-get($fonweight, ultra-max );
+    color: map-get($color, minty-green );
+    text-shadow: 5px 5px 7px map-get($color, sea-green );
+}
+
+.form-continer form{
+    margin-top: 15%;
+}
+
+
+.form{
+    width: 100%;
+}
+
+.form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+form div{
+    flex: 1;
+    margin-bottom: 15px;
+}
+.p1{
+    display: flex;
+    flex-direction: row;
+    row-gap: 10%;
+}
+.p1 input{
+    width: 35%;
+    flex: 1;
+    height:50px ;
+}
+form input:not(.p1 input){
+    width: 100%;
+    height: 50px;
+}
+
+.form a{
+    padding: 1% 5%;
+    border: 1px solid black;
+    margin-top: 10px;
+    color: white;
+    background-color: black;
+}
+
+.form a:hover{
+    background: map-get($color, minty-green );
+    color: map-get($color, lilac-gray);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 6px map-get($color, sea-green );
+
+}
