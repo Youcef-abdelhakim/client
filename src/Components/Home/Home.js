@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import Img1 from '../../pictures/p1.jpg'
 import {categories, perfumes} from '../../data';
 import Product from './Product';
-
+// useMemo!
 const Home = ({cart, addtoCart, prf}) =>{
 
     // useEffect(() =>{

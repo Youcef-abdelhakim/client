@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { perfumes } from "../../data";
 
 
 const Product = ({parfume, handleCallback}) =>{
@@ -19,14 +21,14 @@ const Product = ({parfume, handleCallback}) =>{
 
     return(
         <Fragment>
-            <div className="product-card">
+            <div className="product-card" key={perfumes.id}>
                 <img src={parfume.pictureUrl} alt={parfume.name}/>
                 <h4>{parfume.name}</h4>
                 <h5>{parfume.brand}</h5>
                 <h5 className="price">£{parfume.price}</h5>
                 <p className={stockStyle(parfume.state)}>{parfume.state}</p>
                 <a className="add" onClick={handleCallback}>Add to Card<i className='bx bx-cart-add'></i></a>
-                <a className="det">View details</a>
+                <Link className="det" to= {`/Details/${parfume.id}`}>View details</Link>
             </div>
         </Fragment>
     );

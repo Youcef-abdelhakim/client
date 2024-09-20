@@ -3,6 +3,7 @@ import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
 import Cart from "./Components/Cart/Cart";
 import FormC from "./Components/Form/form.js";
+import Details from "./Components/Details/Details.js";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route index element={<Home addtoCart={addtoCart}/>}/>
             <Route path="/cart" element={<Cart cart = {cart} removeforCart ={removeforCart} />}/>
             <Route path="/form" element={<FormC/>}/>
+            <Route path="/Details/:id" element={<Details/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

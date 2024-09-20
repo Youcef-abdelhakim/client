@@ -1,10 +1,10 @@
 @import  '../../SCSS/root.scss';
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
 .picture-section{
-    height:100vh;
+    height: calc(100vh - 100px);
+    margin-top: 100px;
     display: flex;
     flex-direction: row;
-    padding-top: 100px;
     position:relative;
     width: 100%;
     box-sizing: border-box;

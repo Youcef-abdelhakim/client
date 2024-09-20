@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import {Link, Outlet} from 'react-router-dom' 
 
 const Layout = ({ }) =>{
-
+    const navRef = useRef()
     const handledisplay = () =>{
-        const nav = document.getElementById('navelist2');
-        nav.classList.toggle('display');
+        navRef.current.classList.toggle('display');
     }
+    console.log(navRef.current);
 
 
 
@@ -33,7 +33,7 @@ const Layout = ({ }) =>{
                 
                
             </div>
-            <div className="navelist" id="navelist2">
+            <div className="navelist" ref ={navRef}>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link>Shope</Link></li>
