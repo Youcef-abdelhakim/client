@@ -21,7 +21,7 @@ const Product = ({parfume, handleCallback}) =>{
 
     return(
         <Fragment>
-            <div className="product-card" key={perfumes.id}>
+            <div className="product-card" key={parfume.id}>
                 <img src={parfume.pictureUrl} alt={parfume.name}/>
                 <h4>{parfume.name}</h4>
                 <h5>{parfume.brand}</h5>

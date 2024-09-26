@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const Details = () =>{
 
     const {id} = useParams();
-    const perfume = perfumes.find(perf => perf.id == parseInt(id));    
+    const perfume = perfumes.find(perf => perf.id === id);    
     useEffect(()=>{
         console.log(perfume);
     },[perfume])
