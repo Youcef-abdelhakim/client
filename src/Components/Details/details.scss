@@ -1,5 +1,86 @@
 @import '../../SCSS/root.scss';
 
-.delails-section{
-    margin-top: 300px;
+.details-section{
+    height: calc(100vh - 100px);
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-details{
+    width: 100%;
+    text-align: center;
+}
+.title-details h1{
+    font-size: map-get($fontsize, xxxl);
+    font-weight: map-get($fonweight, ultra-max );
+    font-family: map-get($fonts, informal );
+}
+.title-details span{
+    color: map-get($color, minty-green );
+    text-shadow: 5px 5px 7px map-get($color, sea-green );
+    font-family: map-get($fonts, informal );
+}
+
+.prf-info{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    height: 80%;
+}
+
+.prf-img{
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.prf-img img{
+    height:70% ;
+}
+
+.fiche{
+    flex: 1;
+    padding-top: 5%;
+    padding-right: 10%;
+}
+
+.ftitle{
+    font-size: map-get($fontsize, xxl);
+    margin-bottom: 5%;
+}
+
+.fbrand{
+    font-size: map-get($fontsize, xl );
+    color: map-get($color, sea-green);
+    margin-bottom: 3%;
+}
+
+.details-examplepr{
+    font-weight: bold;
+    margin-bottom: 3%;
+}
+
+.inf{
+    color: green;
+    margin-bottom: 3%;
+    font-size: map-get($fontsize, xl );
+}
+
+.outf{
+    color: red;
+    margin-bottom: 3% ;
+    font-size: map-get($fontsize, xl );
+}
+
+.fprice{
+    margin-bottom: 3%;
+}
+
+.fcateg{
+    font-size: map-get($fontsize, xxl );
+    font-weight: map-get($fonweight, ultra-max );
+    font-family: map-get($fonts, informal );
 }
