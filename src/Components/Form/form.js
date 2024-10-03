@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-const FormC = () =>{
+const FormC = ({total, products}) =>{
 
     const [userinfos, setInfos] = useState({});
 
@@ -14,6 +14,13 @@ const FormC = () =>{
 
     const handle = () =>{
         console.log(userinfos);
+        const order = {
+            ...userinfos,
+            products:products,
+            totalPrice: total
+        }
+        console.dir(order);
+        alert(userinfos.total)
     }
 
     const isvalid = userinfos.first_name &&
@@ -23,6 +30,10 @@ const FormC = () =>{
     userinfos.address    &&
     userinfos.delvery ;
 
+    useEffect(() =>{
+        console.log(total);
+    }, [])
+
 
     return(
         <section className="userform">
@@ -31,6 +42,7 @@ const FormC = () =>{
             </div>
 
             <div className="form">
+                <h1>Total price of your comand is £ {total}</h1>
                 <form>
                     <span>
                         <label htmlFor="firstname">First Name</label>
@@ -63,7 +75,7 @@ const FormC = () =>{
                         <label htmlFor="Home">Home</label>
                         <input type="radio" name="delvery" id="office" value="office" onChange={handleOrderConfirmation} />
                         <label htmlFor="office">Office</label>
-                        <button type="submit" disabled={!isvalid} onClick={handle}>Submit</button>
+                        <button  disabled={!isvalid} onClick={handle}>Submit</button>
                     </span>                    
                 </form>
             </div>
@@ -72,3 +84,4 @@ const FormC = () =>{
 }
 
 export default FormC;
+

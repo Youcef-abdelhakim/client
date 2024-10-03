@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Cart = ({cart, removeforCart}) =>{
+const Cart = ({cart, removeforCart, total}) =>{
 
     const empty = cart.length === 0;
 
-    const [total, settotal] = useState(0);
+    
 
-    useEffect(() =>{
-        settotal(
-            cart.reduce((acemulater, item) => acemulater + Number(item.pricen), 0)
-        )
-    },[cart])
+
     return(
         <section className="cart1">
             <div className="cart-continer">

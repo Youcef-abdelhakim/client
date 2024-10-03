@@ -9,7 +9,8 @@ import { useEffect, useState } from "react";
 function App() {
 
   const [cart, setCart] = useState([]);
-
+  const [total, settotal] = useState(0);
+  const [products, setproducts] = useState([])
   const addtoCart = (prf) =>{
     if(prf.state === "In Stock"){
       setCart(prev => {
@@ -39,14 +40,28 @@ function App() {
     console.log(cart);
   }, [cart])
 
+  useEffect(() =>{
+    settotal(
+        cart.reduce((acemulater, item) => acemulater + Number(item.pricen), 0)
+    )
+},[cart])
+
+useEffect(() =>{
+  setproducts(cart.map(product => ({
+    prodName: product.name,
+    prodBrand: product.brand,
+    prodPrice: product.price
+  })))
+},[cart])
+
   return (
     <BrowserRouter>
       <Routes >
         <Route path="/" element ={<Layout/>}>
             <Route index element={<Home addtoCart={addtoCart}/>}/>
-            <Route path="/cart" element={<Cart cart = {cart} removeforCart ={removeforCart} />}/>
-            <Route path="/form" element={<FormC/>}/>
-            <Route path="/Details/:id" element={<Details/>}/>
+            <Route path="/cart" element={<Cart cart = {cart} removeforCart ={removeforCart} total = {total}/>}/>
+            <Route path="/form" element={<FormC total = {total} products = {products}/>}/>
+            <Route path="/Details/:id" element={<Details />}/>
         </Route>
       </Routes>
     </BrowserRouter>
