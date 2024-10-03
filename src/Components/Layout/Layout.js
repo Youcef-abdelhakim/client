@@ -1,12 +1,12 @@
 import React, { Fragment, useRef } from "react";
 import {Link, Outlet} from 'react-router-dom' 
 
-const Layout = ({ }) =>{
+const Layout = () =>{
     const navRef = useRef()
     const handledisplay = () =>{
         navRef.current.classList.toggle('display');
     }
-    console.log(navRef.current);
+    // console.log(navRef.current);
 
 
 

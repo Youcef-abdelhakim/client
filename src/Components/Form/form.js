@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import axios from 'axios';
+
 const FormC = ({total, products}) =>{
 
     const [userinfos, setInfos] = useState({});
@@ -11,16 +13,35 @@ const FormC = ({total, products}) =>{
             [name] : value
         }))
     }
+    useEffect(() =>{
+        console.log(products);
+    }, [])
 
-    const handle = () =>{
+    const handle = (e) =>{
+        e.preventDefault();
+
         console.log(userinfos);
         const order = {
-            ...userinfos,
-            products:products,
+            firstName: userinfos.first_name,
+            lastName: userinfos.last_name,
+            email: userinfos.email,
+            phone: userinfos.phone_number,
+            adress: userinfos.address,
+            deleverypoint: userinfos.delvery, // Ensure this matches your backend
+            products: products,
             totalPrice: total
         }
         console.dir(order);
-        alert(userinfos.total)
+        // alert(userinfos.total)
+
+        axios.post('http://localhost:8000/api/order/ordera', order)
+        .then(res =>{
+            alert('res', res.data);
+        })
+        .catch(err =>{
+            alert('error', err);
+            console.log('error', err);
+        })
     }
 
     const isvalid = userinfos.first_name &&
@@ -29,10 +50,6 @@ const FormC = ({total, products}) =>{
     /^(05|06|07)\d{8}$/.test(userinfos.phone_number) &&
     userinfos.address    &&
     userinfos.delvery ;
-
-    useEffect(() =>{
-        console.log(total);
-    }, [])
 
 
     return(
@@ -75,7 +92,7 @@ const FormC = ({total, products}) =>{
                         <label htmlFor="Home">Home</label>
                         <input type="radio" name="delvery" id="office" value="office" onChange={handleOrderConfirmation} />
                         <label htmlFor="office">Office</label>
-                        <button  disabled={!isvalid} onClick={handle}>Submit</button>
+                        <button type="submit" disabled={!isvalid} onClick={handle}>Submit</button>
                     </span>                    
                 </form>
             </div>
