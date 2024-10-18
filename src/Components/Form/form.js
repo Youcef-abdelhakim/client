@@ -18,7 +18,7 @@ const FormC = ({total, products}) =>{
     }, [])
 
     const handle = (e) =>{
-        e.preventDefault();
+        
 
         console.log(userinfos);
         const order = {
