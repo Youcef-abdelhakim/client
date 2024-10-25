@@ -1,18 +1,39 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Img1 from '../../pictures/p1.jpg'
-import {categories, perfumes} from '../../data';
+// import {categories, perfumes} from '../../data';
 import Product from './Product';
+import axios from 'axios';
 // useMemo!
 const Home = ({cart, addtoCart, prf}) =>{
 
-    // useEffect(() =>{
-    //     console.log(perfumes);
-    //     const maped_data = new Map();
-    //     categories.forEach(categorie =>{
-    //         maped_data.set(categorie, perfumes.filter(p => p.category === categorie.name));
-    //     });
-    //     console.log(maped_data);
-    // });
+    const [categories, setCategories] = useState([]);
+    const [perfumes, setPerfumes] = useState([]);
+
+    const fetchCateg = async() => {
+        try {
+            const res = await axios.get("http://localhost:8000/api/category/categoryget");
+            console.log(res.data.message);
+            setCategories(res.data.message.map(categorie => categorie.category));
+        } catch(err) {
+            console.error("error cathced!", err);
+        }
+    }
+    const fetchPerfumes = async() => {
+        try {
+            const res = await axios.get("http://localhost:8000/api/products/demo");
+            console.log(res.data);
+            setPerfumes(res.data.products);
+        } catch (err){
+            console.error("Error catched!", err);
+        }
+    }
+
+
+
+    useEffect(() => {
+        fetchCateg();
+        fetchPerfumes();
+    },[]);
   
     return(
         <Fragment>
@@ -46,13 +67,13 @@ const Home = ({cart, addtoCart, prf}) =>{
             <div className='producte-continer'>
                 {
                     categories.map(categorie => (
-                        <div className='categorie' key={categorie.name}>
+                        <div className='categorie' key={categorie}>
                             <div className='catname'>
-                                <h2>{categorie.name}</h2>
+                                <h2>{categorie}</h2>
                             </div>
                             <div className='crts'>
-                            {perfumes.filter(prf => prf.category === categorie.name).map(prf => (
-                                <Product key={`${categorie.id}_${prf.name}`} parfume={prf} handleCallback={() => addtoCart(prf)} /> 
+                            {perfumes.filter(prf => prf.category === categorie).map(prf => (
+                                <Product key={`${prf.Quantity}`} parfume={prf} handleCallback={() => addtoCart(prf)} /> 
                             ))}
                             </div>
                         </div>
