@@ -5,14 +5,49 @@ import Cart from "./Components/Cart/Cart";
 import FormC from "./Components/Form/form.js";
 import Details from "./Components/Details/Details.js";
 import { useEffect, useState } from "react";
+import axios from 'axios';
+import { perfumes } from "./data.js";
 
 function App() {
 
   const [cart, setCart] = useState([]);
   const [total, settotal] = useState(0);
-  const [products, setproducts] = useState([])
+  const [products, setproducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [perfumes, setPerfumes] = useState([]);
+  
+
+  const fetchCateg = async() => {
+    try {
+        const res = await axios.get("http://localhost:8000/api/category/categoryget");
+        console.log(res.data.message);
+        setCategories(res.data.message.map(categorie => categorie.category));
+    } catch(err) {
+        console.error("error cathced!", err);
+    }
+}
+const fetchPerfumes = async() => {
+    try {
+        const res = await axios.get("http://localhost:8000/api/products/demo");
+        console.log(res.data);
+        setPerfumes(res.data.products);
+    } catch (err){
+        console.error("Error catched!", err);
+      }
+}
+
+
+useEffect(() => {
+    fetchCateg();
+    fetchPerfumes();
+},[]);
+
+
+
+
+
   const addtoCart = (prf) =>{
-    if(prf.state === "In Stock"){
+    if(prf.Quantity > 0){
       setCart(prev => {
         const exist = prev.some(item => item.id === prf.id);
         if(exist){
@@ -52,16 +87,16 @@ useEffect(() =>{
     prodBrand: product.brand,
     prodPrice: product.price
   })))
-},[cart])
+},[cart]);
 
   return (
     <BrowserRouter>
       <Routes >
         <Route path="/" element ={<Layout/>}>
-            <Route index element={<Home addtoCart={addtoCart}/>}/>
+            <Route index element={<Home addtoCart={addtoCart} categories={categories} perfumes={perfumes}/>}/>
             <Route path="/cart" element={<Cart cart = {cart} removeforCart ={removeforCart} total = {total}/>}/>
             <Route path="/form" element={<FormC total = {total} products = {products}/>}/>
-            <Route path="/Details/:id" element={<Details />}/>
+            <Route path="/Details/:id" element={ perfumes.length>0 ?  <Details perfumes={perfumes}/>: <h1>loding...</h1> }/>
         </Route>
       </Routes>
     </BrowserRouter>

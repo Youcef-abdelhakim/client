@@ -30,7 +30,7 @@ const Product = ({parfume, handleCallback}) =>{
                 <h5 className="price">£{parfume.price}</h5>
                 <p className={stockStyle(parfume.state)}>{state}</p>
                 <a className="add" onClick={handleCallback}>Add to Card<i className='bx bx-cart-add'></i></a>
-                <Link className="det" to= {`/Details/${parfume.id}`}>View details</Link>
+                <Link className="det" to= {`/Details/${parfume._id}`}>View details</Link>
             </div>
         </Fragment>
     );

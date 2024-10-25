@@ -1,18 +1,24 @@
 import React, { useEffect } from "react";
-import { perfumes } from "../../data.js";
+// import { perfumes } from "../../data.js";
 import { useParams } from "react-router-dom";
 
-const Details = () =>{
+const Details = ({perfumes}) =>{
+
+    useEffect(() => {
+        console.log(perfumes);
+    }, [])
 
     const {id} = useParams();
-    const perfume = perfumes.find(perf => perf.id === id);    
+    const perfume = perfumes.find(perf => perf._id === id);    
+    
     useEffect(()=>{
         console.log(perfume);
     },[perfume])
 
+    const state = perfume.Quantity>0 ? "In Stock" : "Out Of Stock";
 
     const fstate = () =>{
-        return perfume.state === "In Stock"? "inf" : "outf";
+        return perfume.Quantity >0 ? "inf" : "outf";
     }
     return(
         <section className="details-section">
@@ -21,7 +27,7 @@ const Details = () =>{
                 </div>
                 <div className="prf-info">
                     <div className="prf-img">
-                    <img src={perfume.pictureUrl} alt={perfume.name}/>
+                    <img src={`http://localhost:8000/${perfume.image}`} alt={perfume.name}/>
                     </div>
                     <div className="fiche">
                         <h2 className="ftitle">{perfume.name}</h2>
@@ -38,7 +44,7 @@ const Details = () =>{
                             occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                        <h4 className={fstate()}>{perfume.state}</h4>
+                        <h4 className={fstate()}>{state}</h4>
                         <h4 className="fprice">Price: {perfume.price} £</h4>
                         <p className="fcateg">{perfume.category}</p>
                     </div>

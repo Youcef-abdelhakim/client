@@ -2,38 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react'
 import Img1 from '../../pictures/p1.jpg'
 // import {categories, perfumes} from '../../data';
 import Product from './Product';
-import axios from 'axios';
+
 // useMemo!
-const Home = ({cart, addtoCart, prf}) =>{
+const Home = ({cart,categories, perfumes, addtoCart, prf}) =>{
 
-    const [categories, setCategories] = useState([]);
-    const [perfumes, setPerfumes] = useState([]);
-
-    const fetchCateg = async() => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/category/categoryget");
-            console.log(res.data.message);
-            setCategories(res.data.message.map(categorie => categorie.category));
-        } catch(err) {
-            console.error("error cathced!", err);
-        }
-    }
-    const fetchPerfumes = async() => {
-        try {
-            const res = await axios.get("http://localhost:8000/api/products/demo");
-            console.log(res.data);
-            setPerfumes(res.data.products);
-        } catch (err){
-            console.error("Error catched!", err);
-        }
-    }
-
-
-
-    useEffect(() => {
-        fetchCateg();
-        fetchPerfumes();
-    },[]);
   
     return(
         <Fragment>
