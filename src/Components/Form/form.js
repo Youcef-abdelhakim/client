@@ -27,7 +27,7 @@ const FormC = ({total, products}) =>{
             email: userinfos.email,
             phone: userinfos.phone_number,
             adress: userinfos.address,
-            deleverypoint: userinfos.delvery, // Ensure this matches your backend
+            deleverypoint: userinfos.delvery, 
             products: products,
             totalPrice: total
         }

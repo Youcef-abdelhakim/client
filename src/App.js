@@ -49,7 +49,7 @@ useEffect(() => {
   const addtoCart = (prf) =>{
     if(prf.Quantity > 0){
       setCart(prev => {
-        const exist = prev.some(item => item.id === prf.id);
+        const exist = prev.some(item => item._id === prf._id);
         if(exist){
           return prev.map(item => 
             item.id === prf.id?
@@ -83,9 +83,11 @@ useEffect(() => {
 
 useEffect(() =>{
   setproducts(cart.map(product => ({
+    product_id : product._id,
     prodName: product.name,
     prodBrand: product.brand,
-    prodPrice: product.price
+    prodPrice: product.price,
+    quantity : product.quant
   })))
 },[cart]);
 

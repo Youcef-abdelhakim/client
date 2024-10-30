@@ -17,7 +17,7 @@ const Cart = ({cart, removeforCart, total}) =>{
                 <div className="selected">
                     <ul>
                         {cart.map(list => (
-                            <li key={list.id}>
+                            <li key={list._id}>
                                 <div className="cart-item">
                                     <h3>{list.name}</h3>
                                     <h3>{list.category}</h3>
