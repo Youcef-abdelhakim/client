@@ -84,6 +84,7 @@ useEffect(() => {
 useEffect(() =>{
   setproducts(cart.map(product => ({
     product_id : product._id,
+    prodImgSrc : product.image,
     prodName: product.name,
     prodBrand: product.brand,
     prodPrice: product.price,
