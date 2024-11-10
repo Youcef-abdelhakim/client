@@ -88,7 +88,8 @@ useEffect(() =>{
     prodName: product.name,
     prodBrand: product.brand,
     prodPrice: product.price,
-    quantity : product.quant
+    Orderquantity : product.quant,
+    Productquantity : product.Quantity
   })))
 },[cart]);
 
